@@ -9,7 +9,8 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
         const cnn = connectionState().connection;
         if (cnn) {
             cnn.query(sql, (err: any, rows: any, fields: any) => {
-                res.json(rows);
+                const datas = rows ? rows : [];
+                res.json(datas);
             });
         } else {
             const err = new Error('Error');
@@ -17,6 +18,7 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
             throw err;
         }
     } catch (error) {
+        console.log(error);
         res.send(error.message);
     }
 });
