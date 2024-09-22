@@ -18,3 +18,14 @@ npm run dev
 npm run build
 npm run start
 ```
+
+## .env
+```
+PORT=
+
+DB_HOST=
+DB_PORT=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
+```
