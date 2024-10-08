@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
     const sql = `SELECT * FROM users `;
     try {
-        const cnn = connectionState().connection;
+        const { connection: cnn } = connectionState();
         if (cnn) {
             cnn.query(sql, (err: any, rows: any, fields: any) => {
                 const datas = rows ? rows : [];
